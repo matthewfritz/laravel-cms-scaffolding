@@ -15,10 +15,13 @@ class CreateUserRolesTable extends Migration
     {
         Schema::create('user_roles', function(Blueprint $table) {
             $table->integer('user_id');
+            $table->integer('site_id');
             $table->string('role', 32);
 
-            $table->timestamps();
-            $table->primary(['user_id', 'role']);
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->nullable();
+            
+            $table->primary(['user_id', 'site_id', 'role']);
         });
     }
 

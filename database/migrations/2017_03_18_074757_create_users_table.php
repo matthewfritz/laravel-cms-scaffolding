@@ -20,7 +20,8 @@ class CreateUsersTable extends Migration
             $table->string('display_name', 255);
             $table->boolean('active')->default(true);
 
-            $table->timestamps();
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->nullable();
         });
     }
 

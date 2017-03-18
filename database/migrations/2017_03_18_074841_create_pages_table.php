@@ -22,7 +22,8 @@ class CreatePagesTable extends Migration
             $table->text('content');
             $table->boolean('active')->default(true);
 
-            $table->timestamps();
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->nullable();
         });
     }
 

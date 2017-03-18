@@ -17,7 +17,9 @@ class CreateRolesTable extends Migration
             $table->string('system_name', 32);
             $table->string('display_name', 64);
 
-            $table->timestamps();
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->nullable();
+            
             $table->primary('system_name');
         });
     }

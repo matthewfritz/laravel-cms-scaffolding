@@ -17,10 +17,11 @@ class CreateRevisionsTable extends Migration
             $table->increments('id');
             $table->integer('page_id');
             $table->integer('user_id'); // ID of the user that modified the value
-            $table->text('old_value');
-            $table->text('new_value');
+            $table->text('old_value')->nullable();
+            $table->text('new_value')->nullable();
 
-            $table->timestamps();
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->nullable();
         });
     }
 
