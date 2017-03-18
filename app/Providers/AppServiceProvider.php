@@ -23,6 +23,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        // register the service provider for the Debugbar if we are currently
+        // in a debuggable environment
+        if(config("app.debug")) {
+            $this->app->register(
+                'Barryvdh\Debugbar\ServiceProvider'
+            );
+        }
     }
 }
