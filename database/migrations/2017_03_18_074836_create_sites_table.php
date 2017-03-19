@@ -16,7 +16,7 @@ class CreateSitesTable extends Migration
         Schema::create('sites', function(Blueprint $table) {
             $table->increments('id');
             $table->string('domain', 255); // Ex: example.com
-            $table->string('base_path', 255)->nullable(); // Ex: /site
+            $table->string('base_path', 255)->nullable(); // Ex: site
             $table->string('display_name', 255);
             $table->boolean('active')->default(true);
 

@@ -54,9 +54,10 @@ class Handler extends ExceptionHandler
         if($exception instanceof NotFoundHttpException) {
             try
             {
+                $host = (!empty($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : 'localhost');
                 $path = $request->path(); // retrieves the path info component
-                $content = ContentHelper::getContent($path);
-                return response($content);
+                $content = ContentHelper::getContent($host, $path);
+                return response($content, 200);
             }
             catch(NotFoundHttpException $e) {
                 // TODO: the content was TRULY not found so display a 404 page
