@@ -20,12 +20,14 @@ class SitesTableSeeder extends Seeder
         		'domain' => 'localhost',
         		'base_path' => null,
         		'display_name' => 'Local Host Site',
+                'theme' => null,
         	],
             [
                 // site URL: http://localhost/other-site
                 'domain' => 'localhost',
                 'base_path' => 'other-site',
                 'display_name' => 'Other Local Host Site',
+                'theme' => 'carousel',
             ],
         ];
 

@@ -38,7 +38,7 @@ class ContentHelper {
 		// the page requested may be at the top-level instead
 		if(empty($site)) {
 			$site = Site::where('domain', $domain)
-				->whereNull('base_path')
+				->whereIsEmpty('base_path')
 				->first();
 		}
 		else
@@ -55,7 +55,7 @@ class ContentHelper {
 			if(empty($pagePath) || $pagePath == "/") {
 				// resolve the landing page of the site
 				$page = Page::where('site_id', $site->id)
-					->whereNull('path')
+					->whereIsEmpty('path')
 					->first();
 			}
 			else
@@ -68,8 +68,10 @@ class ContentHelper {
 
 			// return the response with the data if the page exists
 			if(!empty($page)) {
-				// TODO: display the page with the proper theme
-				return $page->content;
+				// display the page within the proper theme renderer using the
+				// dot notation for the path
+				$renderer = ThemeHelper::getDotPathForSitePage($site, $page);
+				return view($renderer, compact('site', 'page'));
 			}
 		}
 

@@ -18,6 +18,7 @@ class CreateSitesTable extends Migration
             $table->string('domain', 255); // Ex: example.com
             $table->string('base_path', 255)->nullable(); // Ex: site
             $table->string('display_name', 255);
+            $table->string('theme', 255)->nullable(); // NULL or blank means the default theme
             $table->boolean('active')->default(true);
 
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
