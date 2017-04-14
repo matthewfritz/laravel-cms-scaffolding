@@ -8,6 +8,9 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 use App\Classes\ContentHelper;
+use App\Classes\ThemeHelper;
+
+use App\Models\Page;
 
 class Handler extends ExceptionHandler
 {
@@ -67,9 +70,9 @@ class Handler extends ExceptionHandler
 
                 $path = $request->path(); // retrieves the path info component
                 $content = ContentHelper::getContent($host, $path);
-                return response($content);
+                return response($content, 200);
             }
-            catch(NotFoundHttpException $e) {
+            catch(PageNotFoundException $e) {
                 // TODO: the content was TRULY not found so display a 404 page
                 // with the response code of 404 based on what kind of Not Found
                 // error was triggered
@@ -78,8 +81,15 @@ class Handler extends ExceptionHandler
                     return response("CMS 404 Not Found", 404);
                 }
 
-                // dynamic content error page
-                return response("404 Not Found", 404);
+                // retrieve the site where the error was thrown
+                $site = $e->getSite();
+
+                // display the dynamic 404 error page with the site's theme
+                $errorDot = ThemeHelper::getDotPathForTheme404($site->theme);
+                $page = new Page();
+                $page->title = "Not Found";
+                $page->content = "The specified page could not be found on this site.";
+                return response(view($errorDot, compact('site', 'page')), 404);
             }
         }
 
