@@ -54,7 +54,17 @@ class Handler extends ExceptionHandler
         if($exception instanceof NotFoundHttpException) {
             try
             {
-                $host = (!empty($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : 'localhost');
+                // take a proxy into account first using the X-Forwarded-Host header
+                if(!empty($_SERVER['HTTP_X_FORWARDED_HOST'])) {
+                    $host = $_SERVER['HTTP_X_FORWARDED_HOST'];
+                }
+                else
+                {
+                    // no proxy so go off the value that PHP reports; if THAT header
+                    // is empty then just assume localhost
+                    $host = (!empty($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : 'localhost');
+                }
+
                 $path = $request->path(); // retrieves the path info component
                 $content = ContentHelper::getContent($host, $path);
                 return response($content, 200);
