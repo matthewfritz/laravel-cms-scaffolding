@@ -73,6 +73,15 @@ class ContentHelper {
 				$renderer = ThemeHelper::getDotPathForSitePage($site, $page);
 				return view($renderer, compact('site', 'page'));
 			}
+			else
+			{
+				// display the 404 error page with the site's theme
+				$errorDot = ThemeHelper::getDotPathForTheme404($site->theme);
+				$page = new Page();
+				$page->title = "Not Found";
+				$page->content = "The specified page could not be found on this site.";
+				return view($errorDot, compact('site', 'page'));
+			}
 		}
 
 		// the page has not been found so throw a new instance of the exception

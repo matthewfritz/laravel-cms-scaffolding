@@ -77,4 +77,29 @@ class ThemeHelper {
 		return "{$dotPath}.{$renderer}";
 	}
 
+	/**
+	 * Returns the dot-notation path to the rendering page for a 404 error.
+	 * Throws a ThemeNotFoundException if the theme could not be found or read.
+	 *
+	 * @param string $themeName The name of the directory where the theme lives
+	 *
+	 * @return string
+	 * @throws ThemeNotFoundException
+	 */
+	public static function getDotPathForTheme404($themeName) {
+		$dotPath = self::getDotPath($themeName);
+		$dirPath = resource_path("views/" . str_replace(".", "/", $dotPath));
+
+		$renderer = "page";
+		$errorRenderer = "404";
+
+		// use the custom 404 renderer if it is available or the regular page
+		// renderer otherwise
+		if(is_readable("{$dirPath}/{$errorRenderer}.blade.php")) {
+			$renderer = $errorRenderer;
+		}
+
+		return "{$dotPath}.{$renderer}";
+	}
+
 }

@@ -67,7 +67,7 @@ class Handler extends ExceptionHandler
 
                 $path = $request->path(); // retrieves the path info component
                 $content = ContentHelper::getContent($host, $path);
-                return response($content, 200);
+                return response($content);
             }
             catch(NotFoundHttpException $e) {
                 // TODO: the content was TRULY not found so display a 404 page
