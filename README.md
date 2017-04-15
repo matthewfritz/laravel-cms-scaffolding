@@ -50,3 +50,7 @@ This project comes with several migrations and seeders. The migrations included 
 * `revisions`
 
 There is also seeder data for every table that sets-up two example sites along with the relevant revisions, pages, and themes.
+
+## Debugging
+
+The Laravel Debugbar (`barryvdh/laravel-debugbar`) is one of the dependencies for this repository. If you do not wish to use the debug bar, either remove the service provider in `config/app.php` or set `APP_DEBUG=false` in your `.env` file.
