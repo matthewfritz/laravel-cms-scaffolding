@@ -12,15 +12,14 @@
 */
 
 // routes specific to the CMS itself (not the display of its dynamic content)
+// are all prefixed with a specific URI.
 //
 // If you'd like to modify the prefixed URI for the admin panel, modify the
 // CMS_ADMIN_URI value in your .env file
 Route::group(['prefix' => config('cms.admin_uri')], function() {
-	// all routes defined here have their URIs prefixed with "cms-admin"
-	// by default
-	Route::get('/', function() {
-		return "CMS admin landing page";
-	})->name('home');
+	
+	Route::get('/', 'HomeController@index')->name('home');
+	
 });
 
 // Notice how there are no routes defined to retrieve dynamic content. This is
