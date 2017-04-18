@@ -33,12 +33,14 @@ class ContentHelper {
 		// the site again but with the root-level hierarchy
 		$site = Site::where('domain', $domain)
 			->where('base_path', $pathComponents[0])
+			->active()
 			->first();
 
 		// the page requested may be at the top-level instead
 		if(empty($site)) {
 			$site = Site::where('domain', $domain)
 				->whereIsEmpty('base_path')
+				->active()
 				->first();
 		}
 		else
@@ -73,6 +75,14 @@ class ContentHelper {
 				$renderer = ThemeHelper::getDotPathForSitePage($site, $page);
 				return view($renderer, compact('site', 'page'));
 			}
+		}
+		else
+		{
+			// the desired site either does not exist or is not marked as active
+			// then we need to throw an exception
+			throw new SiteNotFoundException(
+				"The site with the host of \"{$host}\" either does not exist or is inactive."
+			);
 		}
 
 		// the page has not been found so throw a new instance of the exception

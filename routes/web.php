@@ -12,6 +12,9 @@
 */
 
 // routes specific to the CMS itself (not the display of its dynamic content)
+//
+// NOTE: If you change the prefix here you'll also have to change the prefix on
+// the call to $request->is() in app/Exceptions/Handler.php
 Route::group(['prefix' => 'cms-admin'], function() {
 	// all routes defined here have their URIs prefixed with "cms-admin"
 	Route::get('/', function() {

@@ -72,6 +72,11 @@ class Handler extends ExceptionHandler
                 $content = ContentHelper::getContent($host, $path);
                 return response($content, 200);
             }
+            catch(SiteNotFoundException $e) {
+                // the site with the specified host could not be resolved
+                // so we need to display a standard error response
+                return response("<h1>Site Not Found</h1>" . $e->getMessage(), 404);
+            }
             catch(PageNotFoundException $e) {
                 // TODO: the content was TRULY not found so display a 404 page
                 // with the response code of 404 based on what kind of Not Found

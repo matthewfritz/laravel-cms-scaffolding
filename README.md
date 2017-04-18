@@ -46,6 +46,10 @@ This theme includes a regular page rendering template but also includes a render
 
 It is a basic Bootstrap theme but the landing page uses a custom rendering template that includes a Bootstrap carousel.
 
+## Environment Configuration
+
+Make sure you update your `.env` file, specifically the values that begin with `DB_` since that's the database configuration section.
+
 ## Database Tables
 
 This project comes with several migrations. The migrations included create the following tables:
@@ -57,9 +61,17 @@ This project comes with several migrations. The migrations included create the f
 * `pages`
 * `revisions`
 
-### Development Data
+Run the migrations with the following command:
 
-There is also seeder data for every table that sets-up two example sites along with the relevant revisions, pages, and themes.
+`php artisan migrate`
+
+### Database Data
+
+You can run the database seeders with the following command:
+
+`php artisan db:seed`
+
+This will give you data for all of the tables in the system and you get two sites fully-bootstrapped.
 
 ## Debugging
 
