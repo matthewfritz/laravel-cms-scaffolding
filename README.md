@@ -4,6 +4,12 @@ This project contains the boilerplate functionality that you would expect to see
 
 This scaffolding project is written in Laravel 5.4.
 
+## Installation
+
+This project can be installed from Composer.
+
+`composer create-project matthewfritz/laravel-cms-scaffolding --prefer-dist`
+
 ## Features
 
 Out of the box, you get a bunch of features. This `laravel-cms-scaffolding` project can actually be used as a basic lightweight CMS on its own. However, you will probably want to use it as a jumping-off point for larger projects since it takes care of the CMS boilerplate for you.
@@ -38,9 +44,9 @@ This theme includes a regular page rendering template but also includes a render
 
 It is a basic Bootstrap theme but the landing page uses a custom rendering template that includes a Bootstrap carousel.
 
-## Development Data
+## Database Tables
 
-This project comes with several migrations and seeders. The migrations included create the following tables:
+This project comes with several migrations. The migrations included create the following tables:
 
 * `users`
 * `roles`
@@ -48,6 +54,8 @@ This project comes with several migrations and seeders. The migrations included 
 * `sites`
 * `pages`
 * `revisions`
+
+### Development Data
 
 There is also seeder data for every table that sets-up two example sites along with the relevant revisions, pages, and themes.
 
