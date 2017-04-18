@@ -81,7 +81,7 @@ class Handler extends ExceptionHandler
                 // TODO: the content was TRULY not found so display a 404 page
                 // with the response code of 404 based on what kind of Not Found
                 // error was triggered
-                if($request->is("cms-admin/*")) {
+                if($request->is(config('cms.admin_uri') . "/*")) {
                     // CMS error page
                     return response("CMS 404 Not Found", 404);
                 }

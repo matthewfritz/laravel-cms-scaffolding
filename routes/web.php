@@ -13,9 +13,9 @@
 
 // routes specific to the CMS itself (not the display of its dynamic content)
 //
-// NOTE: If you change the prefix here you'll also have to change the prefix on
-// the call to $request->is() in app/Exceptions/Handler.php
-Route::group(['prefix' => 'cms-admin'], function() {
+// If you'd like to modify the prefixed URI for the admin panel, modify the
+// CMS_ADMIN_URI value in your .env file
+Route::group(['prefix' => config('cms.admin_uri')], function() {
 	// all routes defined here have their URIs prefixed with "cms-admin"
 	Route::get('/', function() {
 		return "CMS admin landing page";

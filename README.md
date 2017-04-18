@@ -50,6 +50,20 @@ It is a basic Bootstrap theme but the landing page uses a custom rendering templ
 
 Make sure you update your `.env` file, specifically the values that begin with `DB_` since that's the database configuration section.
 
+### Admin Panel URI
+
+You can override the URI prefix for the CMS admin panel by modifying the `CMS_ADMIN_URI` value in your `.env` file. It is `cms-admin` by default so that would give you a URL of `http://localhost/cms-admin`, for example. If you wanted something different, you could do the following as an example:
+
+`CMS_ADMIN_URI=my-cms`
+
+The URL to the admin panel based on this example would then be `http://localhost/my-cms`.
+
+### Application Timezone
+
+You can override the timezone used by the application by modifying the `APP_TIMEZONE` value in your `.env` file. It is `UTC` by default. If you wanted something different, you could do the following as an example:
+
+`APP_TIMEZONE=America/Los_Angeles`
+
 ## Database Tables
 
 This project comes with several migrations. The migrations included create the following tables:
