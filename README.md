@@ -58,11 +58,23 @@ You can override the URI prefix for the CMS admin panel by modifying the `CMS_AD
 
 The URL to the admin panel based on this example would then be `http://localhost/my-cms`.
 
+You can then generate the absolute URLs to pages within your admin panel using the `cmsUrl()` helper function. For example:
+
+`<a href="{{ cmsUrl('pages/create') }}">Create New Page</a>`
+
+You can also generate the link markup directly and then display it:
+
+`{!! cmsLinkTo('pages/create', 'Create New Page') !!}`
+
 ### Application Timezone
 
 You can override the timezone used by the application by modifying the `APP_TIMEZONE` value in your `.env` file. It is `UTC` by default. If you wanted something different, you could do the following as an example:
 
 `APP_TIMEZONE=America/Los_Angeles`
+
+### Custom CMS Configuration Values
+
+You can place configuration values specific to your custom CMS in `config/cms.php`.
 
 ## Database Tables
 

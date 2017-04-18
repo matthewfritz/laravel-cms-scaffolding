@@ -18,7 +18,8 @@
 Route::group(['prefix' => config('cms.admin_uri')], function() {
 	// all routes defined here have their URIs prefixed with "cms-admin"
 	Route::get('/', function() {
-		return "CMS admin landing page";
+		return cmsLinkTo("/", "Admin Landing Page", ['target' => '_blank']);
+		//return "CMS admin landing page";
 	});
 });
 
