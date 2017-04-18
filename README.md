@@ -1,6 +1,6 @@
 # Laravel CMS Scaffolding
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) [![Project Version 1.0.0](https://img.shields.io/badge/Project_Version-1.0.0-green.svg)](https://packagist.org/packages/matthewfritz/laravel-cms-scaffolding) [![Laravel 5.4](https://img.shields.io/badge/Laravel-5.4-green.svg)](https://laravel.com/docs/5.4)
 
 This project contains the boilerplate functionality that you would expect to see in a Laravel CMS. That way you can start working on your cool features instead of having to worry about the routing and content retrieval.
 
@@ -10,7 +10,7 @@ This scaffolding project is written in Laravel 5.4.
 
 This project can be installed from Composer.
 
-`composer create-project matthewfritz/laravel-cms-scaffolding --prefer-dist`
+`composer create-project --prefer-dist matthewfritz/laravel-cms-scaffolding my-custom-cms`
 
 ## Features
 
