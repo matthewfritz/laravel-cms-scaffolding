@@ -6,6 +6,16 @@ This project contains the boilerplate functionality that you would expect to see
 
 This scaffolding project is written in Laravel 5.4.
 
+## Table of Contents
+
+* [Installation](#installation)
+* [Features](#features)
+* [Themes](#themes)
+* [Environment Configuration](#environment-configuration)
+* [Database Tables](#database-tables)
+* [Helper Functions](#helper-functions)
+* [Debugging](#debugging)
+
 ## Installation
 
 This project can be installed from Composer.
