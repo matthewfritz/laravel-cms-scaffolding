@@ -1,5 +1,7 @@
 # Laravel CMS Scaffolding
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
 This project contains the boilerplate functionality that you would expect to see in a Laravel CMS. That way you can start working on your cool features instead of having to worry about the routing and content retrieval.
 
 This scaffolding project is written in Laravel 5.4.
