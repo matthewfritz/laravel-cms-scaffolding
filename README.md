@@ -95,19 +95,25 @@ This will give you data for all of the tables in the system and you get two site
 
 This project comes with some helper methods to make linking to URLs and named routes within the CMS admin panel easier.
 
-### `cms_url($uri)`
+### `cms_url`
+
+Function signature: `cms_url($uri)`
 
 You can generate the absolute URLs to pages within your admin panel using the `cms_url()` helper function. For example:
 
 `<a href="{{ cms_url('pages/create') }}">Create New Page</a>`
 
-### `cms_link_to($uri, $linkText="", $linkParams=[])`
+### `cms_link_to`
+
+Function signature: `cms_link_to($uri, $linkText="", $linkParams=[])`
 
 You can generate the link markup directly for an absolute URL and then display it:
 
 `{!! cms_link_to('pages/create', 'Create New Page') !!}`
 
-### `cms_link_to_route($route, $routeParams=[], $linkText="", $linkParams=[])`
+### `cms_link_to_route`
+
+Function signature: `cms_link_to_route($route, $routeParams=[], $linkText="", $linkParams=[])`
 
 You can generate the absolute URL to a named route (along with its route parameters) and then display it:
 
