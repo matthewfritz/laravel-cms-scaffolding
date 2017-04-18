@@ -58,14 +58,6 @@ You can override the URI prefix for the CMS admin panel by modifying the `CMS_AD
 
 The URL to the admin panel based on this example would then be `http://localhost/my-cms`.
 
-You can then generate the absolute URLs to pages within your admin panel using the `cmsUrl()` helper function. For example:
-
-`<a href="{{ cmsUrl('pages/create') }}">Create New Page</a>`
-
-You can also generate the link markup directly and then display it:
-
-`{!! cmsLinkTo('pages/create', 'Create New Page') !!}`
-
 ### Application Timezone
 
 You can override the timezone used by the application by modifying the `APP_TIMEZONE` value in your `.env` file. It is `UTC` by default. If you wanted something different, you could do the following as an example:
@@ -98,6 +90,28 @@ You can run the database seeders with the following command:
 `php artisan db:seed`
 
 This will give you data for all of the tables in the system and you get two sites fully-bootstrapped.
+
+## Helper Functions
+
+This project comes with some helper methods to make linking to URLs and named routes within the CMS admin panel easier.
+
+### `cms_url($uri)`
+
+You can generate the absolute URLs to pages within your admin panel using the `cms_url()` helper function. For example:
+
+`<a href="{{ cms_url('pages/create') }}">Create New Page</a>`
+
+### `cms_link_to($uri, $linkText="", $linkParams=[])`
+
+You can generate the link markup directly for an absolute URL and then display it:
+
+`{!! cms_link_to('pages/create', 'Create New Page') !!}`
+
+### `cms_link_to_route($route, $routeParams=[], $linkText="", $linkParams=[])`
+
+You can generate the absolute URL to a named route (along with its route parameters) and then display it:
+
+`{!! cms_link_to_route('users', [2], 'Show User 2') !!}`
 
 ## Debugging
 

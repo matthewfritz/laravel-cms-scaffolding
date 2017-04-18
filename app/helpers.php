@@ -8,7 +8,7 @@
  * @param string $uri The URI to prefix with the admin panel URI
  * @return string
  */
-function cmsUrl($uri="") {
+function cms_url($uri="") {
 	// if we have an absolute URL, just return it
 	if(starts_with($uri, 'http://') || starts_with($uri, 'https://')) {
 		return $uri;
@@ -32,8 +32,8 @@ function cmsUrl($uri="") {
  *
  * @return string
  */
-function cmsLinkTo($uri, $linkText="", $linkParams=[]) {
-	$url = cmsUrl($uri);
+function cms_link_to($uri, $linkText="", $linkParams=[]) {
+	$url = cms_url($uri);
 	$text = (!empty($linkText) ? $linkText : $url);
 
 	$link = "<a href=\"{$url}\"";
@@ -58,7 +58,7 @@ function cmsLinkTo($uri, $linkText="", $linkParams=[]) {
  *
  * @return string
  */
-function cmsLinkToRoute($route, $routeParams=[], $linkText="", $linkParams=[]) {
+function cms_link_to_route($route, $routeParams=[], $linkText="", $linkParams=[]) {
 	$url = route($route, $routeParams);
-	return cmsLinkTo($url, $linkText, $linkParams);
+	return cms_link_to($url, $linkText, $linkParams);
 }
