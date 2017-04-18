@@ -1,9 +1,15 @@
 {
-    "name": "laravel/laravel",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "name": "matthewfritz/laravel-cms-scaffolding",
+    "description": "This project contains the boilerplate functionality that you would expect to see in a Laravel CMS. That way you can start working on your cool features instead of having to worry about the routing and content retrieval.",
+    "keywords": ["framework", "laravel", "cms", "boilerplate", "scaffolding"],
     "license": "MIT",
     "type": "project",
+    "authors": [
+        {
+            "name": "Matthew Fritz",
+            "email": "mattf@burbankparanormal.com"
+        }
+    ],
     "require": {
         "php": ">=5.6.4",
         "barryvdh/laravel-debugbar": "^2.3",
@@ -11,8 +17,7 @@
         "guzzlehttp/guzzle": "~6.0",
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0",
-        "laravelcollective/html": "^5.4",
-        "tiesa/ldap": "dev-master"
+        "laravelcollective/html": "^5.4"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
