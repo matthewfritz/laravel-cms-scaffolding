@@ -9,6 +9,11 @@
  * @return string
  */
 function cmsUrl($uri="") {
+	// if we have an absolute URL, just return it
+	if(starts_with($uri, 'http://') || starts_with($uri, 'https://')) {
+		return $uri;
+	}
+
 	$uriPrefix = config('cms.admin_uri');
 	if(!empty($uriPrefix)) {
 		return url($uriPrefix . "/" . $uri);
@@ -40,4 +45,20 @@ function cmsLinkTo($uri, $linkText="", $linkParams=[]) {
 
 	$link .= ">{$text}</a>";
 	return $link;
+}
+
+/**
+ * Returns a generated <a> tag to link to the specified named route using
+ * optional route parameters, link text and link parameters.
+ *
+ * @param string $route The named route for which a link should be generated
+ * @param array $routeParams Optional array of route parameters
+ * @param string $linkText Optional display text for the link
+ * @param array $linkParams Optional parameters for the link
+ *
+ * @return string
+ */
+function cmsLinkToRoute($route, $routeParams=[], $linkText="", $linkParams=[]) {
+	$url = route($route, $routeParams);
+	return cmsLinkTo($url, $linkText, $linkParams);
 }
