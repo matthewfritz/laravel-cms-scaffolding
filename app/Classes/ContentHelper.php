@@ -3,6 +3,7 @@
 namespace App\Classes;
 
 use App\Exceptions\PageNotFoundException;
+use App\Exceptions\SiteNotFoundException;
 
 use App\Models\Page;
 use App\Models\Site;
@@ -81,7 +82,7 @@ class ContentHelper {
 			// the desired site either does not exist or is not marked as active
 			// then we need to throw an exception
 			throw new SiteNotFoundException(
-				"The site with the host of \"{$host}\" either does not exist or is inactive."
+				"The site with the host of \"{$domain}\" either does not exist or is inactive."
 			);
 		}
 
